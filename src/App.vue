@@ -2,46 +2,24 @@
   <main>
     <div class="container">
       <my-filters />
-      <main-body />
+      <travel-list :travels="travelStore.filtersTravelsCostDown" />
     </div>
   </main>
 </template>
 
 <script>
 import MyFilters from "@/components/MyFilters.vue";
-import MainBody from "@/components/MainBody.vue";
-// import PostList from "@/components/PostList.vue";
-// import PostForm from "@/components/PostForm.vue";
+import TravelList from "./components/TravelList.vue";
+import { useTravelStore } from "./store/TravelStore";
 export default {
-  components: { MyFilters, MainBody },
-  // components: {
-  //   PostList,
-  //   PostForm,
-  // },
+  components: { MyFilters, TravelList },
+
   data() {
     return {
-      // posts: [
-      //   { id: 1, title: "JavaScript", body: "Описание №1" },
-      //   { id: 2, title: "TypeScript", body: "Описание №2" },
-      //   { id: 3, title: "ReactJS", body: "Описание №3" },
-      // ],
-      // dialogVisible: false,
+      travelStore: useTravelStore(),
     };
   },
-  methods: {
-    // createPost(post) {
-    //   this.posts.push(post);
-    //   this.title = "";
-    //   this.body = "";
-    //   this.dialogVisible = false;
-    // },
-    // removePost(post) {
-    //   this.posts = this.posts.filter((p) => p.id !== post.id);
-    // },
-    // showDialog() {
-    //   this.dialogVisible = true;
-    // },
-  },
+  methods: {},
 };
 </script>
 

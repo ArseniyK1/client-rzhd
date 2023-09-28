@@ -1,19 +1,17 @@
 <template>
   <div class="list">
-    <travel-item v-for="travel in travels" :key="travel.id" :travel="travel" />
+    <travel-item v-for="travel of travels" :key="travel.id" :travel="travel" />
   </div>
 </template>
 
-<script>
+<script setup>
 import TravelItem from "./TravelItem.vue";
-export default {
-  components: { TravelItem },
-  props: {
-    travels: {
-      type: Array,
-    },
+const props = defineProps({
+  travels: {
+    type: Array,
+    required: true,
   },
-};
+});
 </script>
 
 <style scoped>

@@ -51,23 +51,53 @@ export const useTravelStore = defineStore("travelStore", {
         city_arrival: "Сызрань",
         ticket_cost: 699,
         ticket_count: 50,
-        train_name: "Стрела",
+        train_name: "Ворчун",
         train_wagon_types: "купе",
         train_img: "/strela.jpg",
       },
       {
         travel_id: 5,
         time_departure: "14:00",
-        time_arrival: "21:00",
-        travel_time: 7,
+        time_arrival: "22:00",
+        travel_time: 8,
         city_departure: "Владивосток",
         city_arrival: "Казань",
         ticket_cost: 5999,
         ticket_count: 16,
-        train_name: "Сапсан",
+        train_name: "Амур",
         train_wagon_types: "плацкарт",
         train_img: "/sapsan.jpg",
       },
     ],
   }),
+  getters: {
+    filtersTravelsTrainNameUp() {
+      const newArr = this.travels.sort((a, b) =>
+        a.train_name.localeCompare(b.train_name)
+      );
+      return newArr;
+    },
+    filtersTravelsTrainNameDown() {
+      const newArr = this.travels.sort((a, b) =>
+        b.train_name.localeCompare(a.train_name)
+      );
+      return newArr;
+    },
+    filtersTravelsTimeUp() {
+      const newArr = this.travels.sort((a, b) => a.travel_time - b.travel_time);
+      return newArr;
+    },
+    filtersTravelsTimeDown() {
+      const newArr = this.travels.sort((a, b) => b.travel_time - a.travel_time);
+      return newArr;
+    },
+    filtersTravelsCostUp() {
+      const newArr = this.travels.sort((a, b) => a.ticket_cost - b.ticket_cost);
+      return newArr;
+    },
+    filtersTravelsCostDown() {
+      const newArr = this.travels.sort((a, b) => b.ticket_cost - a.ticket_cost);
+      return newArr;
+    },
+  },
 });

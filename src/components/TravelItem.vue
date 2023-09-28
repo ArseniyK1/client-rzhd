@@ -15,18 +15,17 @@
       <div></div>
       <div>Тип вагонов: {{ travel.train_wagon_types }}</div>
     </div>
-    <button class="btn">Подробнее</button>
+    <button class="btn">{{ travel.ticket_cost }}</button>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    travel: {
-      type: Object,
-    },
+<script setup>
+const props = defineProps({
+  travel: {
+    type: Object,
+    required: true,
   },
-};
+});
 </script>
 
 <style scoped>
