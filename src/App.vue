@@ -2,7 +2,7 @@
   <main>
     <div class="container">
       <my-filters />
-      <travel-list :travels="travelStore.filtersTravelsCostDown" />
+      <travel-list :travels="travelStore.travels" />
     </div>
   </main>
 </template>
